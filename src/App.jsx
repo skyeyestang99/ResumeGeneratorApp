@@ -12,7 +12,7 @@ export default function App(){
                         element={<Landing/>}
                     />
                     <Route
-                        path="/jobs"
+                        path="/joblist"
                         element={<JobList/>}
                     />
                 </Routes>

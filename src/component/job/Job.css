@@ -1,0 +1,37 @@
+.job-item {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas:
+      "position position"
+      "employer employer"
+      "location location"
+      "description description";
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .job-item-position {
+    grid-area: position;
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  
+  .job-item-employer {
+    grid-area: employer;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .job-item-location {
+    grid-area: location;
+    margin: 0;
+  }
+  
+  .job-item-description {
+    grid-area: description;
+    margin: 0;
+  }
+  
