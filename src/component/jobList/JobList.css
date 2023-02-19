@@ -1,0 +1,34 @@
+.list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .list {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  
+  .job {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .job h3 {
+    margin: 0;
+    font-size: 1.5em;
+  }
+  
+  .job-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #0066cc;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  

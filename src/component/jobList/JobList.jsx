@@ -1,3 +1,4 @@
+import './JobList.css';
 import Job from "../job/Job";
 import { useLocation } from "react-router-dom";
 
