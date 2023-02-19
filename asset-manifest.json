@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/skyeyestang99/News-App-Project.git/static/css/main.8b1096f2.css",
+    "main.js": "/skyeyestang99/News-App-Project.git/static/js/main.da5d6e7a.js",
+    "index.html": "/skyeyestang99/News-App-Project.git/index.html",
+    "main.8b1096f2.css.map": "/skyeyestang99/News-App-Project.git/static/css/main.8b1096f2.css.map",
+    "main.da5d6e7a.js.map": "/skyeyestang99/News-App-Project.git/static/js/main.da5d6e7a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8b1096f2.css",
+    "static/js/main.da5d6e7a.js"
+  ]
+}
