@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 
 const {Configuration,OpenAIApi} = require("openai");
 const configuration = new Configuration({
-    apiKey: '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'
+    apiKey: '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'
 });
 const openai = new OpenAIApi(configuration);
 
