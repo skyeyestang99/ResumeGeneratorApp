@@ -11,10 +11,10 @@ export default function Resume(){
     useEffect(() => {
       console.log(data)
     })
-    const handleOnClick=()=>{
-        navigate('/joblist')
-        console.log("clicked")
-    }
+    // const handleOnClick=()=>{
+    //     navigate('/joblist')
+    //     console.log("clicked")
+    // }
     return(
         <div>
             <pre>{data}</pre>
