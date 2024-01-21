@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Landing from "./component/landing/Landing";
 import JobList from "./component/jobList/JobList";
 import Resume from "./component/Resume/Resume";
+import SavedJobList from "./component/savedJobList/SavedJobList";
 
 export default function App(){
     return(
@@ -19,6 +20,10 @@ export default function App(){
                     <Route
                         path="/joblist/resume"
                         element={<Resume/>}
+                    />
+                    <Route
+                        path="/savedJobsList"
+                        element={<SavedJobList/>}
                     />
                 </Routes>
             </BrowserRouter>

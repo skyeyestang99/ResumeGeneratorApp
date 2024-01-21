@@ -1,0 +1,20 @@
+.saved-jobs-list {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+.saved-jobs-list h1 {
+    color: #333;
+}
+
+.saved-jobs-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.saved-jobs-list li {
+    margin-bottom: 15px;
+    padding-bottom: 2px;
+    border-bottom: 5px solid #eee;
+}

@@ -1,9 +1,16 @@
 import express, { response } from "express";
 import {PORT,mongoDBURL} from "./config.js";
 import mongoose from "mongoose";
+import cors from 'cors';
 import {SavedJob} from "./models/savedJob.js";
 
 const app = express(); 
+
+app.use(cors({
+    origin:'http://localhost:3000',
+    methods:['GET','POST','PUT','DELETE'],
+    allowedHeaders:['Content-Type']
+}));
 
 app.use(express.json());
 
@@ -56,7 +63,41 @@ app.get('/savedJobs/:id',async(request,response)=>{
         console.log(error.message);
         response.status(500).send({message:error.message});
     }
-})
+});
+
+app.put('/savedJobs/:id',async(request,response)=>{
+    try{
+        if(!request.body.title|| !request.body.company || !request.body.postedDate){
+            return response.status(400).send({message:'job body not fullfilled'});
+        }
+        const{id} = request.params;
+        const result = await SavedJob.findByIdAndUpdate(id,request.body)
+
+        if(!result) return response.status(404).send({message:'Book not found'});
+        return response.status(200).send({
+            message:'Saved Job updated successfully',
+            data:result
+        });
+    }catch(error){
+        console.log(error.message);
+        response.status(500).send({message:error.message});
+    }
+});
+
+app.delete('/savedJobs/:id',async(request,response)=>{
+    try{
+        const{id} = request.params;
+        const result = await SavedJob.findByIdAndDelete(id)
+
+        if(!result) return response.status(404).send({message:'Book not found'});
+        return response.status(200).send({
+            message:'Saved Job deleted successfully',
+        });
+    }catch(error){
+        console.log(error.message);
+        response.status(500).send({message:error.message});
+    }
+});
 mongoose
     .connect(mongoDBURL)
     .then(()=>{

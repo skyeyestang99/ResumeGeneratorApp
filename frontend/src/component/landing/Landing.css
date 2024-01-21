@@ -70,3 +70,8 @@
     background-color: #4169E1;
   }
   
+  .savedJobList{
+    position: absolute; 
+    right: 565px; 
+    top: 350px; 
+  }

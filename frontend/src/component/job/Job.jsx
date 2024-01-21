@@ -2,6 +2,7 @@ import "./Job.css";
 import { useState,useEffect } from "react";
 import { useNavigate } from "react-router";
 import ReactLoading from 'react-loading';
+import axios from "axios";
 
 
 const {Configuration,OpenAIApi} = require("openai");
@@ -10,23 +11,23 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
-export default function Job({ position, employer, description, location, link }) {
+export default function Job({ position, postedDate, employer, description, location, link }) {
       const [load,setLoad]=useState(false)
       const [data,setData] = useState()
       const navigate = useNavigate();
       async function GenerateResume(){
-      setLoad(true)
-      const response = await openai.createCompletion({
-          model: "text-davinci-003",
-          prompt : `Generate a resume for Skyeyes Tang who is 21 years old studying 
-          at Harvard University based on the following job description:\n\nPosition: 
-          ${position}\nEmployer: ${employer}\nLocation: ${location}\nDescription: 
-          {description} return the resume in formated way`,
-          max_tokens: 2048,
-          n: 1,
-          temperature: 0.7,
-      });
-      setData(response.data.choices[0].text)
+        setLoad(true)
+        const response = await openai.createCompletion({
+            model: "text-davinci-003",
+            prompt : `Generate a resume for Skyeyes Tang who is 21 years old studying 
+            at Harvard University based on the following job description:\n\nPosition: 
+            ${position}\nEmployer: ${employer}\nLocation: ${location}\nDescription: 
+            {description} return the resume in formated way`,
+            max_tokens: 2048,
+            n: 1,
+            temperature: 0.7,
+        });
+        setData(response.data.choices[0].text)
       }
       useEffect(() => {
         if(data!== undefined) {
@@ -39,6 +40,17 @@ export default function Job({ position, employer, description, location, link })
           );
         }
       }, [data,navigate,load]);      
+      const handleSave=()=>{
+        axios.post('http://localhost:5555/savedJobs',{
+          company:employer,
+          title:position,
+          postedDate:2024
+        }).then((response)=>{
+          console.log(response.data)
+        }).catch((error)=>{
+          console.log(error.response.data);
+        })
+      }
       
     return (
       <div>
@@ -55,6 +67,9 @@ export default function Job({ position, employer, description, location, link })
               <button>Apply here</button>
           </a>
           <button onClick={GenerateResume}> Generate Resume</button>
+          <div className="saveButton">
+                <button onClick={handleSave}>Save</button>
+          </div>
         </div>
 }
       </div>

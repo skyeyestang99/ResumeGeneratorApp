@@ -32,6 +32,10 @@ export default function Landing(props){
         setLoad(true);
         fetchJobs(query)
     }
+    const handleSavedJob=(event)=>{
+        event.preventDefault();
+        navigate('/savedJobsList')
+    }
     function fetchJobs(query){
         axios.request(options).then((response) =>{
             // console.log(response.data);
@@ -68,15 +72,9 @@ export default function Landing(props){
                 </div>
                 }
             </div>
+            <div className="savedJobList">
+                <button onClick={handleSavedJob}>Saved Jobs</button>
+            </div>
         </div>
     )
 }
-
-
-// if(load){
-//     console.log("loading");
-//     function reactLoad(){
-//         return <ReactLoading type={"balls"} color={"blue"} height={667} width={375}/>
-//     }
-//     reactLoad();
-// }

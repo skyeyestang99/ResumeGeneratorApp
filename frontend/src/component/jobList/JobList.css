@@ -31,4 +31,9 @@
     text-decoration: none;
     border-radius: 5px;
   }
-  
+  .savedJobList{
+    position: fixed; /* or 'absolute' if the parent is positioned */
+    right: 10px; /* Adjust as needed */
+    top: 10px; /* Adjust as needed */
+    z-index: 1000;
+  }
