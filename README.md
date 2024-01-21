@@ -1,4 +1,15 @@
-This project can perform CRUD on savedJobList, search for jobs, and generate AI resume
+This project can perform CRUD on savedJobList, search for jobs, and generate AI resume.
+
+I used React.js Axios for Frontend,
+
+Express.js for backend HTTP server,
+
+and Mango DB for Databse.
+
+I used serply API for job search
+
+and OpenAI for generating resume.
+
 ![Alt text](https://file%252B.vscode-resource.vscode-cdn.net/Users/tommytang/Desktop/React_Project/ResumeGenerator/landingpage.png?version%253D1705874870677)
 
 ![Alt text](https://file%252B.vscode-resource.vscode-cdn.net/Users/tommytang/Desktop/React_Project/ResumeGenerator/search.png?version%253D1705874927421)
